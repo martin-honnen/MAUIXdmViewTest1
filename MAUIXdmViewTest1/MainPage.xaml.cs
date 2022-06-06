@@ -1,5 +1,6 @@
 ﻿namespace MAUIXdmViewTest1;
 using Saxon.Api;
+using System.Diagnostics;
 
 public partial class MainPage : ContentPage
 {
@@ -18,7 +19,12 @@ public partial class MainPage : ContentPage
         var xqueryExecutable = xqueryCompiler.Compile("(1 to 5) ! <item>Item {.}</item>");
         var xqueryEvaluator = xqueryExecutable.Load();
 
-        var xdmValue = xqueryEvaluator.Evaluate();
+        var xdmValue = xqueryEvaluator.Evaluate().ToArray();
+
+        foreach (XdmNode node in xdmValue)
+        {
+            Debug.WriteLine(node.OuterXml);
+        }
 
         XdmView.ItemsSource = xdmValue;
 

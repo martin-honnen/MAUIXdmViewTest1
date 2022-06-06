@@ -1,8 +1,17 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:saxon="clr-namespace:Saxon.Api;assembly=SaxonCS"
              x:Class="MAUIXdmViewTest1.MainPage">
 
-    <ListView x:Name="XdmView"></ListView>
+    <ListView x:Name="XdmView">
+        <ListView.ItemTemplate>
+            <DataTemplate x:DataType="{x:Type saxon:XdmNode}">
+                <ViewCell>
+                    <Label Text="{Binding Path=OuterXml}"/>
+                </ViewCell>
+            </DataTemplate>
+        </ListView.ItemTemplate>
+    </ListView>
  
 </ContentPage>
