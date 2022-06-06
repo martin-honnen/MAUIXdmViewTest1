@@ -9,9 +9,9 @@ public partial class MainPage : ContentPage
 	{
 		InitializeComponent();
 
-        var values = new string[] { "foo", "bar", "baz" };
+        //var values = new string[] { "foo", "bar", "baz" };
 
-        //var values = new XdmItem[] { new XdmAtomicValue("foo"), new XdmAtomicValue(3), new XdmAtomicValue(true) };
+        var values = new XdmItem[] { new XdmAtomicValue("foo"), new XdmAtomicValue(3), new XdmAtomicValue(true) };
 
         //var xqueryCompiler = processor.NewXQueryCompiler();
         //xqueryCompiler.BaseUri = new Uri("urn:from-string");
