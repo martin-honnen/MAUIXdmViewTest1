@@ -1,17 +1,35 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:MAUIXdmViewTest1"
              xmlns:saxon="clr-namespace:Saxon.Api;assembly=SaxonCS"
              x:Class="MAUIXdmViewTest1.MainPage">
 
-    <ListView x:Name="XdmView">
-        <ListView.ItemTemplate>
+    <HorizontalStackLayout>
+        <!--<ListView x:Name="XdmView">
+            -->
+        <!--<ListView.ItemTemplate>
             <DataTemplate x:DataType="{x:Type saxon:XdmNode}">
                 <ViewCell>
                     <Label Text="{Binding Path=OuterXml}"/>
                 </ViewCell>
             </DataTemplate>
-        </ListView.ItemTemplate>
-    </ListView>
- 
+        </ListView.ItemTemplate>-->
+        <!--
+        </ListView>-->
+
+        <ListView x:Name="XdmView">
+            <ListView.ItemTemplate>
+                <DataTemplate x:DataType="{x:Type local:XdmItemSelection}">
+                    <TextCell Text="{Binding Path=Serialization}"/>
+                    <!--<ViewCell>
+                        <HorizontalStackLayout>
+                            <Label Text="{Binding Path=Serialization}" FontAttributes="Bold"/>
+                        </HorizontalStackLayout>
+                    </ViewCell>-->
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </HorizontalStackLayout>
+
 </ContentPage>
